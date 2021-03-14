@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS order_track_order_detail(
     otod_change_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     otod_create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY(otod_id),
-    FOREIGN KEY(ott_order_id)
+    FOREIGN KEY(otod_order_id)
         REFERENCES order_track_order(oto_id)
         ON DELETE RESTRICT
         ON UPDATE CASCADE,
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS order_track_package(
     otp_is_active BOOLEAN NOT NULL,
     otp_change_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     otp_create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY(ott_id)
+    PRIMARY KEY(otp_id)
 )ENGINE = MYISAM CHARACTER SET utf8mb4;
 
 CREATE TABLE IF NOT EXISTS order_track_product(
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS order_track_work_record(
     otwr_workload INT NOT NULL,
     otwr_start_time TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00',
     otwr_finish_time TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00',
-    PRIMARY KEY(otu_id),
+    PRIMARY KEY(otwr_id),
     FOREIGN KEY(otwr_name)
         REFERENCES order_user(otu_name)
         ON DELETE RESTRICT
